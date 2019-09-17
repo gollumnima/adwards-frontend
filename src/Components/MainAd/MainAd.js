@@ -21,8 +21,6 @@ class MainAd extends Component {
   }
 }
 
-export default MainAd;
-
 const AdWrapper = styled.div`
   margin-top: 50px;
   margin-left: 55px;
@@ -60,14 +58,16 @@ const SmallBox = styled.div`
 `;
 
 const SmallAd = styled.img.attrs({
-  src: require("../img/wecode.png")
+  src: require("img/wecode.png")
 })`
   width: 100%;
   margin-bottom: 20px;
 `;
 
 const BiggerAd = styled.img.attrs({
-  src: require("../img/kakao.png")
+  src: require("img/kakao.png")
 })`
   width: 100%;
 `;
+
+export default MainAd;

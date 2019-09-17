@@ -1,9 +1,9 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 // import Home from "./Pages/Home";
-import AdHome from "./Pages/AdHome";
-import TopBar from "./Components/TopBar";
-import AdUpload from "./Pages/AdPages/AdUpload";
+import Main from "./Pages/Main";
+import TopBar from "./Components/Bar";
+import AdUpload from "./Pages/AdPages";
 
 class Routes extends React.Component {
   render() {
@@ -11,7 +11,7 @@ class Routes extends React.Component {
       <Router>
         <TopBar />
         <Switch>
-          <Route exact path="/" component={AdHome} />
+          <Route exact path="/" component={Main} />
           <Route exact path="/ad_upload" component={AdUpload} />
         </Switch>
       </Router>
