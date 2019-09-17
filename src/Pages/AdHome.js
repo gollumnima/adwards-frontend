@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import styled, { createGlobalStyle } from "styled-components";
 import reset from "styled-reset";
-import TopBar from "../Components/TopBar";
 import MainAd from "../Components/MainAd";
 
 const GlobalStyle = createGlobalStyle`
@@ -17,7 +16,6 @@ class AdHome extends Component {
     return (
       <HomeWrapper>
         <GlobalStyle />
-        <TopBar></TopBar>
         <SideBar></SideBar>
         <MainAd></MainAd>
       </HomeWrapper>
