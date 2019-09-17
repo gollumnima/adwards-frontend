@@ -22,8 +22,6 @@ class AdUpload extends Component {
   }
 }
 
-export default AdUpload;
-
 const UploadPageWrapper = styled.div`
   width: 100%;
   height: 100%;
@@ -78,3 +76,5 @@ const Foots = styled.p`
   font-weight: 400;
   margin: 14px 0;
 `;
+
+export default AdUpload;

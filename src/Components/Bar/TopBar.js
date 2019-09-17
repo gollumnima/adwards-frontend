@@ -45,7 +45,7 @@ const BarRight = styled.div`
 `;
 
 const MenuIcon = styled.img.attrs({
-  src: require("../img/menu.png")
+  src: require("img/menu.png")
 })`
   height: 100%;
   vertical-align: middle;
@@ -54,14 +54,14 @@ const MenuIcon = styled.img.attrs({
 `;
 
 const AdwardLogo = styled.img.attrs({
-  src: require("../img/adwardlogo.png")
+  src: require("img/adwardlogo.png")
 })`
   vertical-align: middle;
   width: 100px;
 `;
 
 const BellIcon = styled.img.attrs({
-  src: require("../img/bell.png")
+  src: require("img/bell.png")
 })`
   height: 100%;
   vertical-align: middle;
@@ -69,7 +69,7 @@ const BellIcon = styled.img.attrs({
 `;
 
 const UserIcon = styled.img.attrs({
-  src: require("../img/user.png")
+  src: require("img/user.png")
 })`
   height: 100%;
   vertical-align: middle;

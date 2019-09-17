@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import styled, { createGlobalStyle } from "styled-components";
 import reset from "styled-reset";
-import MainAd from "../Components/MainAd";
+import MainAd from "Components/MainAd";
 
 const GlobalStyle = createGlobalStyle`
   ${reset};
@@ -11,7 +11,7 @@ body {
     width: 100%;
 }`;
 
-class AdHome extends Component {
+class Main extends Component {
   render() {
     return (
       <HomeWrapper>
@@ -23,15 +23,14 @@ class AdHome extends Component {
   }
 }
 
-export default AdHome;
-
 const HomeWrapper = styled.div`
   width: 100%;
   height: 100%;
   max-width: 690px;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 0 auto;
   /* background-color: #fafafa; */
 `;
 
 const SideBar = styled.div``;
+
+export default Main;
