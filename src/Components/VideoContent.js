@@ -64,4 +64,5 @@ const CountVideo = styled.div`
   margin: 2px;
   color: #606060;
 `;
+
 export default VideoContent;
