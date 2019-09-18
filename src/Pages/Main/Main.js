@@ -16,7 +16,6 @@ class Main extends Component {
     return (
       <HomeWrapper>
         <GlobalStyle />
-        <SideBar></SideBar>
         <MainAd></MainAd>
       </HomeWrapper>
     );
@@ -26,11 +25,11 @@ class Main extends Component {
 const HomeWrapper = styled.div`
   width: 100%;
   height: 100%;
+  border: 0;
   max-width: 690px;
   margin: 0 auto;
+  background: transparent;
   /* background-color: #fafafa; */
 `;
-
-const SideBar = styled.div``;
 
 export default Main;
