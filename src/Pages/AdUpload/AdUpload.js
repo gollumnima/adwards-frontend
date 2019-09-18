@@ -1,16 +1,34 @@
 import React, { Component } from "react";
 import styled from "styled-components";
+import AdVideoForm from "Pages/AdVideoForm";
 
 class AdUpload extends Component {
+  constructor() {
+    super();
+    this.state = { isOpen: false };
+  }
+  openModal = () => {
+    if (this.state.isOpen === false) {
+      this.setState({
+        isOpen: true
+      });
+    } else {
+      this.setState({
+        isOpen: false
+      });
+    }
+  };
+
   render() {
     return (
       <UploadPageWrapper>
+        {this.state.isOpen === true ? <AdVideoForm /> : null}
         <StudioWrapper>
           <PicWrapper>
             <StudioPic></StudioPic>
           </PicWrapper>
           <StudioLetter>동영상을 업로드할 준비가 되셨나요?</StudioLetter>
-          <UploadBtn>동영상 업로드</UploadBtn>
+          <UploadBtn onClick={this.openModal}>동영상 업로드</UploadBtn>
         </StudioWrapper>
         <FooterWrapper>
           <Foots>사용 약관</Foots>
