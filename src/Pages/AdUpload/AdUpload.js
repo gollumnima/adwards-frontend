@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import styled from "styled-components";
 import AdVideoForm from "Pages/AdVideoForm";
+import styled from "styled-components";
 
 class AdUpload extends Component {
   constructor() {

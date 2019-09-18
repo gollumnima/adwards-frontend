@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import styled from "styled-components";
 
-class AdQuizForm extends Component {
+class AdMoney extends Component {
   render() {
     return (
       <ModalBackground>
@@ -24,31 +24,27 @@ class AdQuizForm extends Component {
               </AdSideUL>
             </AdLeft>
             <AdRight>
-              <Squeeze>
-                <VideoLinkBox>
-                  <VideoLetters>퀴즈 입력</VideoLetters>
-                  <VideoInput></VideoInput>
-                  <VideoLetters>선택지 입력</VideoLetters>
-                  <AnswerInput></AnswerInput>
-                  <AnswerInput></AnswerInput>
-                  <AnswerInput></AnswerInput>
-                  <AnswerInput></AnswerInput>
-                  <VideoLetters>정답</VideoLetters>
-                  <RightAnswer></RightAnswer>
-                </VideoLinkBox>
-                <CheckBtn>저장</CheckBtn>
-              </Squeeze>
+              <VideoLinkBox>
+                <VideoLetters ad_price>광고 금액</VideoLetters>
+                <VideoInput></VideoInput>
+                <CreditBalance>충전금 잔액: 10,000원</CreditBalance>
+                <VideoLetters>1 view당 보상 금액</VideoLetters>
+                <RewardInput></RewardInput>
+              </VideoLinkBox>
+              <CheckBtn>저장</CheckBtn>
             </AdRight>
+            <CloseOK>
+              <CloseLetter cancel>취소</CloseLetter>
+              <CloseLetter>확인</CloseLetter>
+            </CloseOK>
           </AdVideoWrapper>
-          <CloseOK>
-            <CloseLetter cancel>취소</CloseLetter>
-            <CloseLetter>확인</CloseLetter>
-          </CloseOK>
         </ModalWrapper>
       </ModalBackground>
     );
   }
 }
+
+export default AdMoney;
 
 const ModalBackground = styled.div`
   position: fixed;
@@ -106,10 +102,6 @@ const AdRight = styled.div`
   margin-left: 24px;
 `;
 
-const Squeeze = styled.div`
-  /* display: none; */
-`;
-
 const VideoLinkBox = styled.div`
   justify-content: center;
 `;
@@ -132,38 +124,29 @@ const VideoLetters = styled.h2`
 `;
 
 const VideoInput = styled.input.attrs({
-  placeholder: "퀴즈 제목을 입력해주세요"
+  placeholder: "광고 금액을 입력해주세요"
 })`
   margin-top: 20px;
-  margin-bottom: 20px;
   width: 350px;
   height: 25px;
   border: 1px solid #bdbdbd;
   border-radius: 5px;
 `;
 
-const AnswerInput = styled.input.attrs({
-  placeholder: "퀴즈 선택지를 입력해주세요"
-})`
+const CreditBalance = styled.p`
+  color: #233e6a;
+  font-size: 15px;
+  margin-top: 5px;
+`;
+
+const RewardInput = styled.input`
   margin-top: 20px;
-  margin-bottom: 10px;
   width: 350px;
   height: 25px;
   border: 1px solid #bdbdbd;
   border-radius: 5px;
+  background-color: #f4f4f4;
 `;
-
-const RightAnswer = styled.input.attrs({
-  placeholder: "숫자로 입력해주세요"
-})`
-  margin-top: 20px;
-  margin-bottom: 20px;
-  width: 140px;
-  height: 25px;
-  border: 1px solid #bdbdbd;
-  border-radius: 5px;
-`;
-
 const CheckBtn = styled.button`
   width: 100px;
   margin-top: 40px;
@@ -182,5 +165,3 @@ const CloseLetter = styled.h2`
   color: ${props => (props.cancel ? "#233e6a" : "#545352")};
   font-weight: ${props => (props.cancel ? "bold" : "normal")};
 `;
-
-export default AdQuizForm;

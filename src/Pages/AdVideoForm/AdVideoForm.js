@@ -8,7 +8,11 @@ class AdVideoForm extends Component {
         <ModalWrapper>
           <TitleWrapper>
             <TitleLetters>Adwards</TitleLetters>
+            {/* <XWrapper>
+              <Xbox>X</Xbox>
+            </XWrapper> */}
           </TitleWrapper>
+
           <AdVideoWrapper>
             <AdLeft>
               <AdSideUL>
@@ -32,6 +36,10 @@ class AdVideoForm extends Component {
               </VideoLinkBox>
             </AdRight>
           </AdVideoWrapper>
+          <CloseOK>
+            <CloseLetter cancel>취소</CloseLetter>
+            <CloseLetter>확인</CloseLetter>
+          </CloseOK>
         </ModalWrapper>
       </ModalBackground>
     );
@@ -61,12 +69,13 @@ const ModalWrapper = styled.div`
 
 const TitleWrapper = styled.div`
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   background-color: #ffffff;
   border-radius: 10px;
   border-bottom: 1px solid #bdbdbd;
   width: 100%;
   height: 52px;
+  place-content: space-between;
 `;
 
 const TitleLetters = styled.h1`
@@ -75,6 +84,17 @@ const TitleLetters = styled.h1`
   margin-left: 15px;
   margin-top: 10px;
 `;
+
+// const XWrapper = styled.div`
+//   border: 1px solid #bdbdbd;
+//   width: 100%;
+//   height: 100%;
+// `;
+
+// const Xbox = styled.h1`
+//   width: 30px;
+//   height: 30px;
+// `;
 
 const AdVideoWrapper = styled.div`
   width: 100%;
@@ -140,4 +160,17 @@ const CheckBtn = styled.button`
   width: 100px;
 `;
 
+const CloseOK = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  margin-top: 10px;
+`;
+
+const CloseLetter = styled.h2`
+  margin-bottom: 20px;
+  margin-right: 20px;
+  color: ${props => (props.cancel ? "#233e6a" : "#545352")};
+  font-weight: ${props => (props.cancel ? "bold" : "normal")};
+`;
 export default AdVideoForm;

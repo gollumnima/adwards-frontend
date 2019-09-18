@@ -5,6 +5,7 @@ import TopBar from "./Components/TopBar";
 import AdUpload from "./Pages/AdUpload";
 import AdVideoForm from "./Pages/AdVideoForm";
 import AdQuizForm from "./Pages/AdQuizForm";
+import AdMoney from "./Pages/AdMoney";
 
 class Routes extends React.Component {
   render() {
@@ -16,6 +17,7 @@ class Routes extends React.Component {
           <Route exact path="/ad_upload" component={AdUpload} />
           <Route exact path="/ad_video" component={AdVideoForm} />
           <Route exact path="/ad_quiz" component={AdQuizForm} />
+          <Route exact path="/ad_money" component={AdMoney} />
         </Switch>
       </Router>
     );
