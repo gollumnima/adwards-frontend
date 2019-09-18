@@ -1,11 +1,33 @@
 import React, { Component } from "react";
+import ReactDOM from "react-dom";
 import styled from "styled-components";
+import Player from '@vimeo/player';
+
+
 
 class VideoContent extends Component {
+
+  componentDidMount() {
+    const videoElement = ReactDOM.findDOMNode(this.video);
+
+    const player = new Player(videoElement, {
+      id: 55360273,
+      // width: 640
+    });
+
+    player.on('play', function() {
+      console.log('played the video!');
+    });
+
+    player.on('ended', function() {
+      console.log('ended the video!');
+    });
+  }
+
   render() {
     return (
       <VideoWrap>
-        <ContentWrap>video</ContentWrap>
+        <ContentWrap ref={node => this.video = node} />
         <TextWrap>
           <VideoTitle>All creation</VideoTitle>
           <Channel>Second</Channel>
@@ -25,10 +47,17 @@ const VideoWrap = styled.div`
 `;
 
 const ContentWrap = styled.div`
-  border: 1px solid green;
+  position: relative;
   width: 200px;
   height: 110px;
-  background-color: pink;
+  
+  iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
 `;
 
 const TextWrap = styled.div`
