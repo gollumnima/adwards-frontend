@@ -1,8 +1,8 @@
-import { ADMIN_AUTH } from "./types";
+// import { ADMIN_AUTH } from "./types";
 
-const INITIAL_STATE = {
-  showAlert: false
-};
+// const INITIAL_STATE = {
+//   showAlert: false
+// };
 // export default function(state = INITIAL_STATE, action) {
 //     switch(action.type) {
 //         case SHOW_ALERT:
