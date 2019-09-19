@@ -13,8 +13,6 @@ class QuizPlus extends Component {
   }
 }
 
-export default QuizPlus;
-
 const PlusWrapper = styled.div`
   width: 100%;
 `;
@@ -27,3 +25,5 @@ const PlusDiv = styled.div`
 const PlusIcon = styled.a`
   background-image: url("https://image.flaticon.com/icons/svg/148/148790.svg");
 `;
+
+export default QuizPlus;

@@ -15,8 +15,6 @@ class AdMoneyForm extends Component {
   }
 }
 
-export default AdMoneyForm;
-
 const MoneyBox = styled.div`
   margin-top: 20px;
 `;
@@ -47,3 +45,5 @@ const RewardInput = styled.input`
   border-radius: 5px;
   background-color: #f4f4f4;
 `;
+
+export default AdMoneyForm;

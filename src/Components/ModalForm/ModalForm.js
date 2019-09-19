@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import AdVideoForm from "Pages/AdVideoForm";
-import AdMoneyForm from "Pages/AdMoneyForm";
 import AdQuizForm from "Pages/AdQuizForm";
+import AdMoneyForm from "Pages/AdMoneyForm";
 // import QuizPlus from "Components/QuizPlus";
 import styled from "styled-components";
 
@@ -9,26 +9,22 @@ class ModalForm extends Component {
   constructor() {
     super();
     this.state = {
-      rightbox: 0
+      activeTab: "videoTab"
     };
   }
 
-  Switching = e => {
-    /*
-    if (e.target.key === 0) {
-      this.setState({ rightbox: 0 });
-    } else if (e.target.key === 1) {
-      this.setState({ rightbox: 1 });
-    } else {
-      this.setState({ rightbox: 2 });
-    }
-    */
-    this.setState({ rightbox: e.currentTarget.id });
+  switchMenu = activeTab => {
+    this.setState({ activeTab: activeTab });
   };
 
   render() {
-    let subView = [<AdVideoForm />, <AdQuizForm />, <AdMoneyForm />];
-    // 이걸 왜 랜더 전에 선언하면 안되는 걸까요?
+    let subView = [
+      { videoTab: <AdVideoForm key="0" /> },
+      { quizTab: <AdQuizForm key="1" /> },
+      { priceTab: <AdMoneyForm key="2" /> }
+    ];
+
+    console.log(this.props.activeTab, "액티브");
     return (
       <ModalBackground>
         <ModalWrapper>
@@ -38,26 +34,31 @@ class ModalForm extends Component {
           <AdVideoWrapper>
             <AdLeft>
               <AdSideUL>
-                <AdSideLI id="0" onClick={this.Switching}>
+                <AdSideLI
+                  active={this.state.activeTab === "videoTab"}
+                  onClick={() => this.switchMenu("videoTab")}
+                >
                   <Span>광고 영상 업로드</Span>
                 </AdSideLI>
-                <AdSideLI id="1" onClick={this.Switching}>
+                <AdSideLI
+                  active={this.state.activeTab === "quizTab"}
+                  onClick={() => this.switchMenu("quizTab")}
+                >
                   <Span>퀴즈 업로드</Span>
                 </AdSideLI>
-                <AdSideLI id="2" onClick={this.Switching}>
+                <AdSideLI
+                  active={this.state.activeTab === "priceTab"}
+                  onClick={() => this.switchMenu("priceTab")}
+                >
                   <Span>금액 설정</Span>
                 </AdSideLI>
               </AdSideUL>
             </AdLeft>
             <AdRight>
-              {/* {this.state.rightbox === 0 ? (
-                <AdVideoForm />
-              ) : this.state.rightbox === 1 ? (
-                <AdQuizForm />
-              ) : (
-                <AdMoney />
-              )} */}
-              {subView[this.state.rightbox]}
+              {subView.map((el, key) => {
+                el.key = key;
+                return el[this.state.activeTab];
+              })}
             </AdRight>
           </AdVideoWrapper>
           <CloseOK>
@@ -133,6 +134,7 @@ const AdSideLI = styled.li`
   padding-right: 24px;
   font-size: 15px;
   margin: 30px 0;
+  background-color: ${props => (props.active ? `#E2E2E2` : null)};
 `;
 const Span = styled.span`
   font-size: 18px;
