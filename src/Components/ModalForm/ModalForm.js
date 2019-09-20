@@ -1,8 +1,30 @@
 import React, { Component } from "react";
+import AdVideoForm from "Pages/AdVideoForm";
+import AdQuizForm from "Pages/AdQuizForm";
+import AdMoneyForm from "Pages/AdMoneyForm";
+// import QuizPlus from "Components/QuizPlus";
 import styled from "styled-components";
 
-class AdMoney extends Component {
+class ModalForm extends Component {
+  constructor() {
+    super();
+    this.state = {
+      activeTab: "videoTab"
+    };
+  }
+
+  switchMenu = activeTab => {
+    this.setState({ activeTab: activeTab });
+  };
+
   render() {
+    let subView = [
+      { videoTab: <AdVideoForm key="0" /> },
+      { quizTab: <AdQuizForm key="1" /> },
+      { priceTab: <AdMoneyForm key="2" /> }
+    ];
+
+    console.log(this.props.activeTab, "액티브");
     return (
       <ModalBackground>
         <ModalWrapper>
@@ -12,39 +34,42 @@ class AdMoney extends Component {
           <AdVideoWrapper>
             <AdLeft>
               <AdSideUL>
-                <AdSideLI>
+                <AdSideLI
+                  active={this.state.activeTab === "videoTab"}
+                  onClick={() => this.switchMenu("videoTab")}
+                >
                   <Span>광고 영상 업로드</Span>
                 </AdSideLI>
-                <AdSideLI>
+                <AdSideLI
+                  active={this.state.activeTab === "quizTab"}
+                  onClick={() => this.switchMenu("quizTab")}
+                >
                   <Span>퀴즈 업로드</Span>
                 </AdSideLI>
-                <AdSideLI>
+                <AdSideLI
+                  active={this.state.activeTab === "priceTab"}
+                  onClick={() => this.switchMenu("priceTab")}
+                >
                   <Span>금액 설정</Span>
                 </AdSideLI>
               </AdSideUL>
             </AdLeft>
             <AdRight>
-              <VideoLinkBox>
-                <VideoLetters ad_price>광고 금액</VideoLetters>
-                <VideoInput></VideoInput>
-                <CreditBalance>충전금 잔액: 10,000원</CreditBalance>
-                <VideoLetters>1 view당 보상 금액</VideoLetters>
-                <RewardInput></RewardInput>
-              </VideoLinkBox>
-              <CheckBtn>저장</CheckBtn>
+              {subView.map((el, key) => {
+                el.key = key;
+                return el[this.state.activeTab];
+              })}
             </AdRight>
-            <CloseOK>
-              <CloseLetter cancel>취소</CloseLetter>
-              <CloseLetter>확인</CloseLetter>
-            </CloseOK>
           </AdVideoWrapper>
+          <CloseOK>
+            <CloseLetter cancel>취소</CloseLetter>
+            <CloseLetter>확인</CloseLetter>
+          </CloseOK>
         </ModalWrapper>
       </ModalBackground>
     );
   }
 }
-
-export default AdMoney;
 
 const ModalBackground = styled.div`
   position: fixed;
@@ -69,12 +94,13 @@ const ModalWrapper = styled.div`
 
 const TitleWrapper = styled.div`
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   background-color: #ffffff;
   border-radius: 10px;
   border-bottom: 1px solid #bdbdbd;
   width: 100%;
   height: 52px;
+  place-content: space-between;
 `;
 
 const TitleLetters = styled.h1`
@@ -102,54 +128,18 @@ const AdRight = styled.div`
   margin-left: 24px;
 `;
 
-const VideoLinkBox = styled.div`
-  justify-content: center;
-`;
 const AdSideUL = styled.ul``;
 const AdSideLI = styled.li`
   display: flex;
-  padding-left: 24px;
   padding-right: 24px;
   font-size: 15px;
   margin: 30px 0;
+  background-color: ${props => (props.active ? `#E2E2E2` : null)};
 `;
 const Span = styled.span`
   font-size: 18px;
   font-weight: 400;
   height: 30px;
-`;
-
-const VideoLetters = styled.h2`
-  margin-top: 20px;
-`;
-
-const VideoInput = styled.input.attrs({
-  placeholder: "광고 금액을 입력해주세요"
-})`
-  margin-top: 20px;
-  width: 350px;
-  height: 25px;
-  border: 1px solid #bdbdbd;
-  border-radius: 5px;
-`;
-
-const CreditBalance = styled.p`
-  color: #233e6a;
-  font-size: 15px;
-  margin-top: 5px;
-`;
-
-const RewardInput = styled.input`
-  margin-top: 20px;
-  width: 350px;
-  height: 25px;
-  border: 1px solid #bdbdbd;
-  border-radius: 5px;
-  background-color: #f4f4f4;
-`;
-const CheckBtn = styled.button`
-  width: 100px;
-  margin-top: 40px;
 `;
 
 const CloseOK = styled.div`
@@ -163,5 +153,7 @@ const CloseLetter = styled.h2`
   margin-bottom: 20px;
   margin-right: 20px;
   color: ${props => (props.cancel ? "#233e6a" : "#545352")};
-  font-weight: ${props => (props.cancel ? "bold" : "normal")};
+  font-weight: ${props => (props.cancel ? "400" : "normal")};
 `;
+
+export default ModalForm;

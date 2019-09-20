@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import AdVideoForm from "Pages/AdVideoForm";
+import ModalForm from "Components/ModalForm";
 import styled from "styled-components";
 
 class AdUpload extends Component {
@@ -22,7 +22,7 @@ class AdUpload extends Component {
   render() {
     return (
       <UploadPageWrapper>
-        {this.state.isOpen === true ? <AdVideoForm /> : null}
+        {this.state.isOpen === true ? <ModalForm /> : null}
         <StudioWrapper>
           <PicWrapper>
             <StudioPic></StudioPic>
