@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import ModalForm from "Components/ModalForm";
 import styled from "styled-components";
+import AdChart from "Pages/AdChart";
 
 class AdUpload extends Component {
   constructor() {
@@ -22,6 +23,8 @@ class AdUpload extends Component {
   render() {
     return (
       <UploadPageWrapper>
+        <AdChart />
+
         {this.state.isOpen === true ? <ModalForm /> : null}
         <StudioWrapper>
           <PicWrapper>
