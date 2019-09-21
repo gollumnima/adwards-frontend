@@ -5,7 +5,6 @@ class AdVideoForm extends Component {
   constructor() {
     super();
     this.state = {
-      isOpen: true,
       videoTitle: "",
       videoLink: "",
       videoThumbnail: "",
@@ -20,26 +19,27 @@ class AdVideoForm extends Component {
     });
   };
 
-  openCategory = () => {
-    this.state.isOpen === true
-      ? this.setState({ isOpen: false })
-      : this.setState({ isOpen: true });
-  };
-
   onClickSave = e => {
-    const videoTitle = this.state.videoTitle.trim();
-    const videoLink = this.state.videoLink.trim();
-    const videoThumbnail = this.state.videoThumbnail.trim();
-    const videoCate = this.state.videoCate.trim();
-    const videoDesc = this.state.videoDesc.trim();
+    const {
+      videoTitle,
+      videoLink,
+      videoThumbnail,
+      videoCate,
+      videoDesc
+    } = this.state;
+    const title = videoTitle.trim();
+    const link = videoLink.trim();
+    const thumbnail = videoThumbnail.trim();
+    const cate = videoCate.trim();
+    const desc = videoDesc.trim();
 
     videoTitle.trim();
     if (
-      videoTitle === "" ||
-      videoLink === "" ||
-      videoThumbnail === "" ||
-      videoCate === "" ||
-      videoDesc === ""
+      title === "" ||
+      link === "" ||
+      thumbnail === "" ||
+      cate === "" ||
+      desc === ""
     ) {
       alert("모든 칸을 채워주세요");
     } else {
@@ -49,11 +49,11 @@ class AdVideoForm extends Component {
           "Content-Type": "application/json"
         },
         body: JSON.stringify({
-          title: videoTitle,
-          video_link: videoLink,
-          thumbnailk_link: videoThumbnail,
-          ad_category_id: videoCate,
-          description: videoThumbnail
+          title: title,
+          video_link: link,
+          thumbnailk_link: thumbnail,
+          ad_category_id: cate,
+          description: desc
         })
       }).then(response => {
         if (response.status !== 200) {
@@ -88,28 +88,22 @@ class AdVideoForm extends Component {
             onChange={e => this.handleChange(e)}
             placeholder="대표이미지 링크를 입력해주세요"
           ></VideoInput>
-          <VideoLetters category>카테고리 선택 </VideoLetters>
-          <VideoCategory>
-            <VideoCategoryTop onClick={this.openCategory}>
-              <VideoCategoryBtn>카테고리 선택 ▾</VideoCategoryBtn>
-            </VideoCategoryTop>
-            <VideoCategoryDown>
-              <VideoCategoryUL>
-                <VideoCategoryLI>
-                  <CategoryA>게임</CategoryA>
-                </VideoCategoryLI>
-                <VideoCategoryLI>
-                  <CategoryA>동물</CategoryA>
-                </VideoCategoryLI>
-                <VideoCategoryLI>
-                  <CategoryA>스포츠</CategoryA>
-                </VideoCategoryLI>
-                <VideoCategoryLI>
-                  <CategoryA>음식</CategoryA>
-                </VideoCategoryLI>
-              </VideoCategoryUL>
-            </VideoCategoryDown>
-          </VideoCategory>
+          <VideoLetters category>영상 카테고리 선택 </VideoLetters>
+          <div>
+            <Select>
+              <Options>카테고리 선택 </Options>
+              <Options>드라마</Options>
+              <Options>코믹</Options>
+              <Options>음악</Options>
+              <Options>동물</Options>
+              <Options>연예인</Options>
+              <Options>가족</Options>
+              <Options>해외</Options>
+              <Options>패러디</Options>
+              <Options>정보</Options>
+              <Options>영화</Options>
+            </Select>
+          </div>
           <VideoLetters>영상 설명</VideoLetters>
           <VideoTextBox
             name="videoDesc"
@@ -148,47 +142,22 @@ const VideoInput = styled.input.attrs({
   border-radius: 5px;
 `;
 
-const VideoCategory = styled.div`
-  border: none;
+const Select = styled.select`
+  height: 35px;
+  background: white;
+  color: gray;
   font-size: 14px;
-`;
-
-const VideoCategoryTop = styled.div`
-  display: inline-flex;
-  vertical-align: top;
-  position: relative;
-  border: 1px solid #dbdbdb;
-`;
-
-const VideoCategoryBtn = styled.button`
-  border-style: none;
-  background-color: #fff;
-  border-color: #dbdbdb;
-  color: #363636;
-  font-size: 16px;
-  justify-content: center;
-`;
-
-const VideoCategoryDown = styled.div`
-  display: ${({ isOpen }) => (isOpen ? `block` : `none`)};
-`;
-
-const VideoCategoryUL = styled.ul`
-  list-style: none;
-  background-color: #fff;
-  box-shadow: 0 2px 3px rgba(10, 10, 10, 0.1), 0 0 0 1px rgba(10, 10, 10, 0.1);
+  border: 1px solid #bdbdbd;
   border-radius: 4px;
-  margin: 0;
-  padding: 0;
 `;
-
-const VideoCategoryLI = styled.li`
-  z-index: 22;
-  width: 100%;
-  margin-left: 30px;
+const Options = styled.option`
+  color: black;
+  background: white;
+  display: flex;
+  white-space: pre;
+  min-height: 20px;
+  padding: 0px 2px 1px;
 `;
-
-const CategoryA = styled.a``;
 
 const VideoTextBox = styled.textarea`
   width: 350px;
