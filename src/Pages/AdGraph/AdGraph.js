@@ -4,8 +4,11 @@ import styled from "styled-components";
 class AdGraph extends Component {
   render() {
     return (
-      <StatsWrapper>
+      <AdGraphWrapper>
         <GraphPageWrapper>
+          <H1Wrapper>
+            <GraphH1>Adward Report</GraphH1>
+          </H1Wrapper>
           <GraphTop>
             <GraphCateUL>
               <GraphCateLI>도시별</GraphCateLI>
@@ -18,21 +21,40 @@ class AdGraph extends Component {
             <GraphBox></GraphBox>
           </GraphDown>
         </GraphPageWrapper>
-      </StatsWrapper>
+      </AdGraphWrapper>
     );
   }
 }
 
-const StatsWrapper = styled.div`
+const AdGraphWrapper = styled.div`
   width: 100%;
-  background-color: #e2e2e2;
+  height: 100%;
+  border: 0;
+  max-width: 690px;
+  margin: 0 auto;
+  background-color: #f4f4f4;
+  display: flex;
 `;
 
 const GraphPageWrapper = styled.div`
   width: 100%;
 `;
 
-const GraphTop = styled.div``;
+const H1Wrapper = styled.div`
+  background-color: white;
+  height: 60px;
+  text-align: center;
+`;
+
+const GraphH1 = styled.h1`
+  font-weight: 400;
+  margin-top: 20px;
+`;
+
+const GraphTop = styled.div`
+  display: flex;
+  flex-direction: row;
+`;
 
 const GraphDown = styled.div``;
 
