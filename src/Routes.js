@@ -4,6 +4,7 @@ import Main from "./Pages/Main";
 import TopBar from "./Components/TopBar";
 import AdUpload from "./Pages/AdUpload";
 import AdGraph from "./Pages/AdGraph";
+import BizMain from "./Pages/BizMain";
 
 class Routes extends React.Component {
   render() {
@@ -14,6 +15,7 @@ class Routes extends React.Component {
           <Route exact path="/" component={Main} />
           <Route exact path="/ad_upload" component={AdUpload} />
           <Route exact path="/ad_graph" component={AdGraph} />
+          <Route exact path="/biz_main" component={BizMain} />
         </Switch>
       </Router>
     );
