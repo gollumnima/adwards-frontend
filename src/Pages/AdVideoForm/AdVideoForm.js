@@ -42,12 +42,6 @@ class AdVideoForm extends Component {
     });
   };
 
-  openCategory = () => {
-    this.state.isOpen === true
-      ? this.setState({ isOpen: false })
-      : this.setState({ isOpen: true });
-  };
-
   onClickSave = e => {
     const {
       videoTitle,
@@ -125,7 +119,6 @@ class AdVideoForm extends Component {
             onChange={e => this.handleChange(e)}
             placeholder="광고영상에 대한 설명을 입력해주세요"
           ></VideoTextBox>
-
           <VideoLetters category>영상 카테고리 선택 </VideoLetters>
           <div>
             <Select>
