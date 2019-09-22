@@ -9,7 +9,7 @@ class TopTen extends Component {
         <TopTenTitle>맞춤 동영상</TopTenTitle>
         <TopTenList>
           {/* {this.state.result.map((el, i) => {
-            return <VideoContent result={el} key={i} />
+            return <VideoContent result={el} key={i} />;
           })} */}
           <VideoContent />
           <VideoContent />
