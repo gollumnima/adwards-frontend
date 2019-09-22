@@ -43,7 +43,6 @@ class AdUpload extends Component {
 const UploadPageWrapper = styled.div`
   width: 100%;
   height: 100%;
-  text-align: center;
   background-color: #f4f4f4;
   margin: 0;
   padding: 0;
@@ -52,6 +51,7 @@ const UploadPageWrapper = styled.div`
 
 const StudioWrapper = styled.div`
   width: 100%;
+  text-align: center;
 `;
 
 const PicWrapper = styled.div`
@@ -86,6 +86,7 @@ const FooterWrapper = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   margin-top: 24px;
+  text-align: center;
 `;
 
 const Foots = styled.p`

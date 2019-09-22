@@ -123,9 +123,15 @@ const AdLeft = styled.div`
 `;
 
 const AdRight = styled.div`
+  width: 100%;
+  height: 600px;
   display: flex;
   flex-direction: column;
   margin-left: 24px;
+  overflow-y: auto;
+  ::-webkit-scrollbar {
+    display: none;
+  }
 `;
 
 const AdSideUL = styled.ul``;
