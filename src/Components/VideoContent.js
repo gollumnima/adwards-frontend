@@ -1,33 +1,29 @@
 import React, { Component } from "react";
 import ReactDOM from "react-dom";
 import styled from "styled-components";
-import Player from '@vimeo/player';
-
-
+import Player from "@vimeo/player";
 
 class VideoContent extends Component {
-
   componentDidMount() {
     const videoElement = ReactDOM.findDOMNode(this.video);
 
     const player = new Player(videoElement, {
-      id: 55360273,
-      // width: 640
+      id: 55360273
     });
 
-    player.on('play', function() {
-      console.log('played the video!');
+    player.on("play", function() {
+      console.log("played the video!");
     });
 
-    player.on('ended', function() {
-      console.log('ended the video!');
+    player.on("ended", function() {
+      console.log("ended the video!");
     });
   }
 
   render() {
     return (
       <VideoWrap>
-        <ContentWrap ref={node => this.video = node} />
+        <ContentWrap ref={node => (this.video = node)} />
         <TextWrap>
           <VideoTitle>All creation</VideoTitle>
           <Channel>Second</Channel>
@@ -50,7 +46,7 @@ const ContentWrap = styled.div`
   position: relative;
   width: 200px;
   height: 110px;
-  
+
   iframe {
     position: absolute;
     top: 0;
@@ -61,14 +57,13 @@ const ContentWrap = styled.div`
 `;
 
 const TextWrap = styled.div`
-  border: 1px solid green;
+  margin-left: 20px;
   margin-top: 5px;
   width: 200px;
   height: 68px;
 `;
 
 const VideoTitle = styled.div`
-  border: 1px solid green;
   font-weight: 600;
   width: 176px;
   height: 18px;
@@ -77,7 +72,6 @@ const VideoTitle = styled.div`
 `;
 
 const Channel = styled.div`
-  border: 1px solid green;
   width: 82.56px;
   height: 18px;
   font-size: 13px;
@@ -86,7 +80,6 @@ const Channel = styled.div`
 `;
 
 const CountVideo = styled.div`
-  border: 1px solid green;
   width: 97.31px;
   height: 18px;
   font-size: 13px;

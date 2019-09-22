@@ -15,6 +15,7 @@ class VideoLandingPage extends Component {
   render() {
     return (
       <VideoWrapper>
+        <WatchContent />
         <GlobalStyle />
       </VideoWrapper>
     );

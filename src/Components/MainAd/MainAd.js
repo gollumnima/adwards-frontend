@@ -7,13 +7,13 @@ class MainAd extends Component {
     return (
       <AdWrapper>
         <BigAdWrapper>
-          <BigMainBox>
+          {/* <BigMainBox>
             <BigAd></BigAd>
-          </BigMainBox>
-          <SmallBox>
+          </BigMainBox> */}
+          {/* <SmallBox>
             <SmallAd></SmallAd>
             <BiggerAd></BiggerAd>
-          </SmallBox>
+          </SmallBox> */}
         </BigAdWrapper>
         <TopTen></TopTen>
       </AdWrapper>
@@ -22,7 +22,7 @@ class MainAd extends Component {
 }
 
 const AdWrapper = styled.div`
-  margin-top: 50px;
+  margin-top: 30px;
   margin-left: 55px;
   text-align: center;
   @media (max-width: 375px) {
@@ -40,6 +40,7 @@ const BigAdWrapper = styled.div`
 
 const BigMainBox = styled.div`
   margin: 5px;
+  border: 1px solid green;
 `;
 
 const BigAd = styled.img.attrs({

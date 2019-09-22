@@ -27,6 +27,12 @@ class TopTen extends Component {
           <VideoContent />
           <VideoContent />
         </TopTenList>
+        <TopTenTitle>동영상</TopTenTitle>
+        <TopTenList>
+          <VideoContent />
+          <VideoContent />
+          <VideoContent />
+        </TopTenList>
       </TopTenWrapper>
     );
   }
@@ -56,42 +62,5 @@ const TopTenList = styled.div`
     display: none;
   }
 `;
-
-// const VideoOne = styled.img.attrs({
-// src:
-//     "https://i.ytimg.com/vi/5HEoiIVjX74/hqdefault.jpg?sqp=-oaymwEYCNIBEHZIVfKriqkDCwgBFQAAiEIYAXAB&rs=AOn4CLAXFfcgKWW6nRCZStElMeYhRe1hQQ"
-// })`
-//   margin: 2px;
-//   width: 100%;
-// `;
-
-// const VideoTwo = styled.img.attrs({
-//   src:
-//     "https://i.ytimg.com/vi/3aTPapvWpKs/hqdefault.jpg?sqp=-oaymwEYCNIBEHZIVfKriqkDCwgBFQAAiEIYAXAB&rs=AOn4CLDenS1b7MPaYyGGOkekOepkLL2uTQ"
-// })`
-//   margin: 2px;
-//   width: 100%;
-// `;
-// const VideoThree = styled.img.attrs({
-//   src:
-//     "https://i.ytimg.com/vi/3hxT4cSm03s/hqdefault.jpg?sqp=-oaymwEYCNIBEHZIVfKriqkDCwgBFQAAiEIYAXAB&rs=AOn4CLC3qI8X0A7WZJE9bEoPBQGbY80x3Q"
-// })`
-//   margin: 2px;
-//   width: 100%;
-// `;
-// const VideoFour = styled.img.attrs({
-//   src:
-//     "https://i.ytimg.com/vi/8y5tckl-F_Y/hqdefault.jpg?sqp=-oaymwEYCNIBEHZIVfKriqkDCwgBFQAAiEIYAXAB&rs=AOn4CLCzW19-Mw7m8RrVQKPE0PzAx4ntng"
-// })`
-//   margin: 2px;
-//   width: 100%;
-// `;
-// const VideoFive = styled.img.attrs({
-//   src:
-//     "https://i.ytimg.com/vi/x60mB0zXZ38/hqdefault.jpg?sqp=-oaymwEYCNIBEHZIVfKriqkDCwgBFQAAiEIYAXAB&rs=AOn4CLDXpdqa17qxQDBUQcn7vn615e0G_A"
-// })`
-//   margin: 2px;
-//   width: 100%;
-// `;
 
 export default TopTen;
