@@ -6,15 +6,7 @@ class MainAd extends Component {
   render() {
     return (
       <AdWrapper>
-        <BigAdWrapper>
-          <BigMainBox>
-            <BigAd></BigAd>
-          </BigMainBox>
-          <SmallBox>
-            <SmallAd></SmallAd>
-            <BiggerAd></BiggerAd>
-          </SmallBox>
-        </BigAdWrapper>
+        <BigAdWrapper></BigAdWrapper>
         <TopTen></TopTen>
       </AdWrapper>
     );
@@ -22,7 +14,7 @@ class MainAd extends Component {
 }
 
 const AdWrapper = styled.div`
-  margin-top: 50px;
+  margin-top: 30px;
   margin-left: 55px;
   text-align: center;
   @media (max-width: 375px) {
@@ -36,38 +28,6 @@ const BigAdWrapper = styled.div`
   @media (max-width: 375px) {
     margin-left: 15px;
   }
-`;
-
-const BigMainBox = styled.div`
-  margin: 5px;
-`;
-
-const BigAd = styled.img.attrs({
-  src:
-    "https://i.ytimg.com/vi/x40W1njnc4Y/hqdefault.jpg?sqp=-oaymwEZCNACELwBSFXyq4qpAwsIARUAAIhCGAFwAQ==&rs=AOn4CLCF1AsInvXatJmZLbz6JlZ6ed9cvA"
-})`
-  width: 100%;
-`;
-
-const SmallBox = styled.div`
-  width: 210px;
-  margin: 5px;
-  @media (max-width: 375px) {
-    display: none;
-  }
-`;
-
-const SmallAd = styled.img.attrs({
-  src: require("img/wecode.png")
-})`
-  width: 100%;
-  margin-bottom: 20px;
-`;
-
-const BiggerAd = styled.img.attrs({
-  src: require("img/kakao.png")
-})`
-  width: 100%;
 `;
 
 export default MainAd;

@@ -1,34 +1,104 @@
 import React, { Component } from "react";
+import { Link, withRouter } from "react-router-dom";
 import styled from "styled-components";
 
+// const Header = props => {
+//   const AdwarsToken = localStorage.getItem("");
+// };
+
+// const getToken = () => {
+//   if (AdwarsToken) {
+//     setToken(!token);
+//   }
+// };
+
+// const logout = () => {
+//   localStorage.clear();
+//   setToken(!token);
+//   setMessage(!message);
+//   setText("로그아웃 되었습니다!");
+// };
+
+// const goToHome = () => {
+//   props.history.push("/");
+// };
+
 class TopBar extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      token: false
+    };
+    this.token = localStorage.getItem("adwards_token");
+  }
+
+  getToken = () => {
+    if (this.token) {
+      this.setState({
+        token: !this.state.token
+      });
+    }
+  };
+
+  logout = () => {
+    localStorage.clear();
+    this.setState({
+      token: !this.state.token
+    });
+  };
   render() {
     return (
       <BarWrapper>
         <BarLeft>
           <IconWrapper>
-            <MenuIcon></MenuIcon>
-            <AdwardLogo></AdwardLogo>
+            <>
+              <Link href="" passHref>
+                <AdwardsLogo></AdwardsLogo>
+              </Link>
+            </>
           </IconWrapper>
         </BarLeft>
         <BarRight>
-          <IconWrapper>
-            <BellIcon></BellIcon>
-            <UserIcon></UserIcon>
-          </IconWrapper>
+          <LoginIconWrapper>
+            {!this.state.token ? (
+              <>
+                <Link href="/login" passHref>
+                  <UserLogin>
+                    <UserIcon></UserIcon>
+                    <UserLoginWord>로그인</UserLoginWord>
+                  </UserLogin>
+                </Link>
+              </>
+            ) : (
+              <>
+                <UserIcon onclick={this.logout}>로그아웃</UserIcon>
+              </>
+            )}
+            {/* {message && (
+              <LoginMessageWrap>
+                <LoginMessageBox>
+                  <LoginMessageBody>{messageText}</LoginMessageBody>
+                  <ButtonWrap
+                    onclick={() => {
+                      setMessage(!message);
+                    }}
+                  >
+                    확인
+                  </ButtonWrap>
+                </LoginMessageBox>
+              </LoginMessageWrap>
+            )} */}
+          </LoginIconWrapper>
         </BarRight>
       </BarWrapper>
     );
   }
 }
 
-export default TopBar;
-
 const BarWrapper = styled.div`
-  width: 100%;
+  height: 56px;
   padding: 0 16px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
   align-items: center;
   justify-content: space-between;
   background-color: white;
@@ -36,36 +106,27 @@ const BarWrapper = styled.div`
 `;
 const BarLeft = styled.div`
   width: 100%;
-  height: 56px;
 `;
 const BarRight = styled.div`
   width: 100%;
-  height: 56px;
   text-align: right;
 `;
 
-const MenuIcon = styled.img.attrs({
-  src: require("img/menu.png")
-})`
-  height: 100%;
-  vertical-align: middle;
-  margin: 0 16px 0 0;
-  width: 20px;
+const IconWrapper = styled.div`
+  margin-top: 10px;
 `;
 
-const AdwardLogo = styled.img.attrs({
+const AdwardsLogo = styled.img.attrs({
   src: require("img/adwardlogo.png")
 })`
   vertical-align: middle;
   width: 100px;
 `;
 
-const BellIcon = styled.img.attrs({
-  src: require("img/bell.png")
-})`
-  height: 100%;
-  vertical-align: middle;
-  width: 30px;
+const UserLogin = styled.span`
+  margin-top: 15px;
+  border: 1px solid #233e6a;
+  padding: 8px 9px;
 `;
 
 const UserIcon = styled.img.attrs({
@@ -73,12 +134,16 @@ const UserIcon = styled.img.attrs({
 })`
   height: 100%;
   vertical-align: middle;
-  margin: 0 16px 0 0;
-  width: 30px;
-  padding: 0 20px;
+  width: 24px;
+  height: 24px;
 `;
 
-const IconWrapper = styled.div`
-  width: 100%;
-  margin: 12px 0px;
+const UserLoginWord = styled.span`
+  font-size: 15px;
+  margin-left: 8px;
 `;
+const LoginIconWrapper = styled.div`
+  width: 100%;
+`;
+
+export default withRouter(TopBar);

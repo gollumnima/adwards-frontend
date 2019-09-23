@@ -9,7 +9,6 @@ class VideoContent extends Component {
 
     const player = new Player(videoElement, {
       id: 55360273
-      // width: 640
     });
 
     player.on("play", function() {
@@ -58,14 +57,13 @@ const ContentWrap = styled.div`
 `;
 
 const TextWrap = styled.div`
-  border: 1px solid green;
+  margin-left: 20px;
   margin-top: 5px;
   width: 200px;
   height: 68px;
 `;
 
 const VideoTitle = styled.div`
-  border: 1px solid green;
   font-weight: 600;
   width: 176px;
   height: 18px;
@@ -74,7 +72,6 @@ const VideoTitle = styled.div`
 `;
 
 const Channel = styled.div`
-  border: 1px solid green;
   width: 82.56px;
   height: 18px;
   font-size: 13px;
@@ -83,11 +80,11 @@ const Channel = styled.div`
 `;
 
 const CountVideo = styled.div`
-  border: 1px solid green;
   width: 97.31px;
   height: 18px;
   font-size: 13px;
   margin: 2px;
   color: #606060;
 `;
+
 export default VideoContent;
