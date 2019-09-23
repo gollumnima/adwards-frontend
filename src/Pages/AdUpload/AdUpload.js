@@ -1,16 +1,34 @@
 import React, { Component } from "react";
+import ModalForm from "Components/ModalForm";
 import styled from "styled-components";
 
 class AdUpload extends Component {
+  constructor() {
+    super();
+    this.state = { isOpen: false };
+  }
+  openModal = () => {
+    if (this.state.isOpen === false) {
+      this.setState({
+        isOpen: true
+      });
+    } else {
+      this.setState({
+        isOpen: false
+      });
+    }
+  };
+
   render() {
     return (
       <UploadPageWrapper>
+        {this.state.isOpen === true ? <ModalForm /> : null}
         <StudioWrapper>
           <PicWrapper>
             <StudioPic></StudioPic>
           </PicWrapper>
           <StudioLetter>동영상을 업로드할 준비가 되셨나요?</StudioLetter>
-          <UploadBtn>동영상 업로드</UploadBtn>
+          <UploadBtn onClick={this.openModal}>동영상 업로드</UploadBtn>
         </StudioWrapper>
         <FooterWrapper>
           <Foots>사용 약관</Foots>
@@ -25,7 +43,6 @@ class AdUpload extends Component {
 const UploadPageWrapper = styled.div`
   width: 100%;
   height: 100%;
-  text-align: center;
   background-color: #f4f4f4;
   margin: 0;
   padding: 0;
@@ -34,6 +51,7 @@ const UploadPageWrapper = styled.div`
 
 const StudioWrapper = styled.div`
   width: 100%;
+  text-align: center;
 `;
 
 const PicWrapper = styled.div`
@@ -68,6 +86,7 @@ const FooterWrapper = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   margin-top: 24px;
+  text-align: center;
 `;
 
 const Foots = styled.p`

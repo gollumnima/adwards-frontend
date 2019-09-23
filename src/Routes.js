@@ -1,12 +1,13 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-// import Home from "./Pages/Home";
 import Main from "./Pages/Main";
-import TopBar from "./Components/Bar";
-import AdUpload from "./Pages/AdPages";
 import WatchContent from "./Pages/Detail";
 import Signup from "./Pages/Signup";
 import Login from "./Pages/Login";
+import TopBar from "./Components/TopBar";
+import AdUpload from "./Pages/AdUpload";
+import AdGraph from "./Pages/AdGraph";
+import BizMain from "./Pages/BizMain";
 
 class Routes extends React.Component {
   render() {
@@ -19,6 +20,8 @@ class Routes extends React.Component {
           <Route exact path="/watch" component={WatchContent} />
           <Route exact path="/Signup" component={Signup} />
           <Route exact path="/Login" component={Login} />
+          <Route exact path="/ad_graph" component={AdGraph} />
+          <Route exact path="/biz_main" component={BizMain} />
         </Switch>
       </Router>
     );
