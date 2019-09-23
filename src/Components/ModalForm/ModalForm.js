@@ -20,11 +20,10 @@ class ModalForm extends Component {
   render() {
     let subView = [
       { videoTab: <AdVideoForm key="0" /> },
-      { quizTab: <AdQuizForm key="1" /> },
-      { priceTab: <AdMoneyForm key="2" /> }
+      { priceTab: <AdMoneyForm key="1" /> },
+      { quizTab: <AdQuizForm key="2" /> }
     ];
 
-    console.log(this.props.activeTab, "액티브");
     return (
       <ModalBackground>
         <ModalWrapper>
@@ -33,7 +32,7 @@ class ModalForm extends Component {
           </TitleWrapper>
           <AdVideoWrapper>
             <AdLeft>
-              <AdSideUL>
+              <ul>
                 <AdSideLI
                   active={this.state.activeTab === "videoTab"}
                   onClick={() => this.switchMenu("videoTab")}
@@ -41,18 +40,18 @@ class ModalForm extends Component {
                   <Span>광고 영상 업로드</Span>
                 </AdSideLI>
                 <AdSideLI
-                  active={this.state.activeTab === "quizTab"}
-                  onClick={() => this.switchMenu("quizTab")}
-                >
-                  <Span>퀴즈 업로드</Span>
-                </AdSideLI>
-                <AdSideLI
                   active={this.state.activeTab === "priceTab"}
                   onClick={() => this.switchMenu("priceTab")}
                 >
                   <Span>금액 설정</Span>
                 </AdSideLI>
-              </AdSideUL>
+                <AdSideLI
+                  active={this.state.activeTab === "quizTab"}
+                  onClick={() => this.switchMenu("quizTab")}
+                >
+                  <Span>퀴즈 업로드</Span>
+                </AdSideLI>
+              </ul>
             </AdLeft>
             <AdRight>
               {subView.map((el, key) => {
@@ -134,7 +133,6 @@ const AdRight = styled.div`
   }
 `;
 
-const AdSideUL = styled.ul``;
 const AdSideLI = styled.li`
   display: flex;
   padding-right: 24px;
