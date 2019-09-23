@@ -52,7 +52,7 @@ class TopBar extends Component {
         <BarLeft>
           <IconWrapper>
             <>
-              <Link href="" passHref>
+              <Link to="/" passHref>
                 <AdwardsLogo></AdwardsLogo>
               </Link>
             </>
@@ -112,14 +112,14 @@ const BarRight = styled.div`
 `;
 
 const IconWrapper = styled.div`
-  margin-top: 10px;
+  //margin-top: 10px;
 `;
 
 const AdwardsLogo = styled.img.attrs({
-  src: require("img/adwardlogo.png")
+  src: require("img/adward_logo.png")
 })`
   vertical-align: middle;
-  width: 100px;
+  width: 130px;
 `;
 
 const UserLogin = styled.span`

@@ -2,15 +2,21 @@ import React, { Component } from "react";
 import styled, { createGlobalStyle } from "styled-components";
 import reset from "styled-reset";
 import VideoPreview from "Components/VideoPreview";
-import { recommends } from './data';
+import { recommends, tops } from './data';
 
 const GlobalStyle = createGlobalStyle`
   ${reset};
-body {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-}`;
+  
+  body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+  }
+
+  a {
+    color: inherit;
+  }
+`;
 
 class Main extends Component {
   render() {
@@ -20,11 +26,16 @@ class Main extends Component {
 
         <SectionTitle>맞춤 동영상</SectionTitle>
         <VideoList>
-          <VideoListWrap>
             {recommends.map(el => {
               return <VideoPreview key={el.id} info={el} />;
             })}
-          </VideoListWrap>
+        </VideoList>
+
+        <SectionTitle>인기 동영상</SectionTitle>
+        <VideoList>
+          {tops.map(el => {
+            return <VideoPreview key={el.id} info={el} />;
+          })}
         </VideoList>
       </HomeWrapper>
     );
@@ -33,24 +44,22 @@ class Main extends Component {
 
 const HomeWrapper = styled.div`
   max-width: 690px;
-  margin: 0 auto;
+  margin: 0 auto 100px;
   padding: 30px 0 30px 20px;
 `;
 
 const SectionTitle = styled.p`
-  margin-bottom: 20px;
+  margin-bottom: 15px;
   font-size: 16px;
   font-weight: bold;
   color: #444;
 `;
 
 const VideoList = styled.div`
+  display: flex;
   width: 100%;
+  margin-bottom: 40px;
   overflow-x: scroll;
-`;
-
-const VideoListWrap = styled.div`
-
 `;
 
 export default Main;

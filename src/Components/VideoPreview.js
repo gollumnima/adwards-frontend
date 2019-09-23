@@ -1,17 +1,19 @@
 import React from "react";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 const VideoPreview = ({ info }) => {
-  console.log(info)
   return (
-    <VideoWrap>
-      <img src={info.img} />
-      <TextWrap>
-        <VideoTitle>{info.title}</VideoTitle>
-        <Channel>{info.author}</Channel>
-        <CountVideo>조회수 {info.count}</CountVideo>
-      </TextWrap>
-    </VideoWrap>
+    <Link to={`/watch/${info.id}`}>
+      <VideoWrap>
+        <img src={info.img} />
+        <TextWrap>
+          <VideoTitle>{info.title}</VideoTitle>
+          <Channel>{info.author} · 조회수 {info.count}</Channel>
+          <AwardText>보상금 <AwardAmount>{info.award}</AwardAmount></AwardText>
+        </TextWrap>
+      </VideoWrap>
+    </Link>
   );
 }
 
@@ -40,28 +42,36 @@ const ContentWrap = styled.div`
 `;
 
 const TextWrap = styled.div`
+  width: 250px;
   margin-top: 10px;
 `;
 
 const VideoTitle = styled.p`
+  margin-bottom: 5px;
   font-weight: bold;
-  font-size: 14px;
+  font-size: 16px;
 `;
 
-const Channel = styled.div`
-  width: 82.56px;
-  height: 18px;
+const Channel = styled.p`
   font-size: 13px;
-  margin: 2px;
   color: #606060;
 `;
 
-const CountVideo = styled.div`
-  width: 97.31px;
-  height: 18px;
+const AwardText = styled.p`
   font-size: 13px;
-  margin: 2px;
-  color: #606060;
+  color: #119e88;
+  margin-top: 5px;
+`;
+
+const AwardAmount = styled.span`
+  padding: 3px 7px;
+  font-size: 11px;
+  background-color: #119e88;
+  color: white;
+  font-weight: bold;
+  height: 20px;
+  line-height: 20px;
+  border-radius: 3px;
 `;
 
 export default VideoPreview;
