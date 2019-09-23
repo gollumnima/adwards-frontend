@@ -1,14 +1,14 @@
 import React, { Component } from "react";
 import ReactDOM from "react-dom";
+import { withRouter } from "react-router-dom";
 import styled from "styled-components";
 import Player from "@vimeo/player";
 
 class WatchContent extends Component {
   componentDidMount() {
     const videoElement = ReactDOM.findDOMNode(this.video);
-
     const player = new Player(videoElement, {
-      id: 55360273
+      id: this.props.match.params.id
     });
 
     player.on("play", function() {
@@ -25,7 +25,6 @@ class WatchContent extends Component {
       <>
         <WatchVideoWrap>
           <ContentVideoWrap ref={node => (this.video = node)}>
-            Video
           </ContentVideoWrap>
           <TextWrap>
             <VideoTitle>You are my sunshine </VideoTitle>
@@ -62,23 +61,21 @@ class WatchContent extends Component {
 const WatchVideoWrap = styled.div`
   margin-top: 20px;
   max-width: 690px;
-  height: 500px;
+  //height: 500px;
   display: flex;
   flex-direction: column;
   align-items: center;
 `;
 
 const ContentVideoWrap = styled.div`
-  width: 80%;
-  height: 90%;
-  border: 1px solid green;
+  //width: 80%;
+  //height: 90%;
   position: relative;
-  margin: 2px;
 
   iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
+    //position: absolute;
+    //top: 0;
+    //left: 0;
     width: 100%;
     height: 100%;
   }
@@ -164,4 +161,4 @@ const QuizAnswerResult = styled.span`
   width: 100%;
 `;
 
-export default WatchContent;
+export default withRouter(WatchContent);

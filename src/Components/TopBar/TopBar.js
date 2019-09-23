@@ -52,7 +52,7 @@ class TopBar extends Component {
         <BarLeft>
           <IconWrapper>
             <>
-              <Link href="" passHref>
+              <Link to="/" passHref>
                 <AdwardsLogo></AdwardsLogo>
               </Link>
             </>
@@ -65,7 +65,6 @@ class TopBar extends Component {
                 <Link href="/login" passHref>
                   <UserLogin>
                     <UserIcon></UserIcon>
-                    <UserLoginWord>로그인</UserLoginWord>
                   </UserLogin>
                 </Link>
               </>
@@ -102,7 +101,7 @@ const BarWrapper = styled.div`
   align-items: center;
   justify-content: space-between;
   background-color: white;
-  border-bottom: 1px solid #bdbdbd;
+  box-shadow: 0 4px 2px -2px rgba(0,0,0,0.2);
 `;
 const BarLeft = styled.div`
   width: 100%;
@@ -113,19 +112,18 @@ const BarRight = styled.div`
 `;
 
 const IconWrapper = styled.div`
-  margin-top: 10px;
+  //margin-top: 10px;
 `;
 
 const AdwardsLogo = styled.img.attrs({
-  src: require("img/adwardlogo.png")
+  src: require("img/adward_logo.png")
 })`
   vertical-align: middle;
-  width: 100px;
+  width: 130px;
 `;
 
 const UserLogin = styled.span`
   margin-top: 15px;
-  border: 1px solid #233e6a;
   padding: 8px 9px;
 `;
 
@@ -134,8 +132,8 @@ const UserIcon = styled.img.attrs({
 })`
   height: 100%;
   vertical-align: middle;
-  width: 24px;
-  height: 24px;
+  width: 32px;
+  height: 32px;
 `;
 
 const UserLoginWord = styled.span`
