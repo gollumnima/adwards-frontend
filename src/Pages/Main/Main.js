@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import styled, { createGlobalStyle } from "styled-components";
 import reset from "styled-reset";
-import MainAd from "Components/MainAd";
+import VideoPreview from "Components/VideoPreview";
+import { recommends } from './data';
 
 const GlobalStyle = createGlobalStyle`
   ${reset};
@@ -16,20 +17,40 @@ class Main extends Component {
     return (
       <HomeWrapper>
         <GlobalStyle />
-        <MainAd></MainAd>
+
+        <SectionTitle>맞춤 동영상</SectionTitle>
+        <VideoList>
+          <VideoListWrap>
+            {recommends.map(el => {
+              return <VideoPreview key={el.id} info={el} />;
+            })}
+          </VideoListWrap>
+        </VideoList>
       </HomeWrapper>
     );
   }
 }
 
 const HomeWrapper = styled.div`
-  width: 100%;
-  height: 100%;
-  border: 0;
   max-width: 690px;
   margin: 0 auto;
-  background: transparent;
-  /* background-color: #fafafa; */
+  padding: 30px 0 30px 20px;
+`;
+
+const SectionTitle = styled.p`
+  margin-bottom: 20px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #444;
+`;
+
+const VideoList = styled.div`
+  width: 100%;
+  overflow-x: scroll;
+`;
+
+const VideoListWrap = styled.div`
+
 `;
 
 export default Main;
